@@ -1,58 +1,63 @@
+
+import java.util.Scanner;
+
 public class JuegoMain {
+
     public static void main(String[] args) {
-        Ak bronce=new Ak();
-        bronce.tipo="bronce";
-        bronce.cargador=5;
-        bronce.precision=75;
-        bronce.velocidadCarga=5;
-        bronce.precio=1000;
-        bronce.danio=10;
-        bronce.velocidadDisparo=10;
-        
-       System.out.println(bronce.toString()) ;
-       
-       Ak plata=new Ak();
-       plata.tipo="plata";
-       plata.cargador=8;
-       plata.precision=70;
-       plata.velocidadCarga=4.5;
-       plata.precio=2300;
-       plata.danio=10;
-       plata.velocidadDisparo=9.8;
-       
-       System.out.println(plata.toString());
-       
-       Ak oro=new Ak();
-       oro.tipo="oro";
-       oro.cargador=10;
-       oro.precision=85;
-       oro.velocidadCarga=4.3;
-       oro.precio=2500;
-       oro.danio=11;
-       oro.velocidadDisparo=9.7;
-       
-       System.out.println(oro.toString());
-       
-       Ak diamante=new Ak();
-       diamante.tipo="diamante";
-       diamante.cargador=20;
-       diamante.precision=95;
-       diamante.velocidadCarga=4.3;
-       diamante.precio=2500;
-       diamante.danio=11;
-       diamante.velocidadDisparo=9.4;
-       
-       System.out.println(diamante.toString());
-       
-       Ak adamantium=new Ak();
-       adamantium.tipo="adamantium";
-       adamantium.cargador=30;
-       adamantium.precision=100;
-       adamantium.velocidadCarga=1;
-       adamantium.precio=10000;
-       adamantium.danio=27;
-       adamantium.velocidadDisparo=8;
-       
-       System.out.println(adamantium.toString()); 
-    } 
+        Scanner leer = new Scanner(System.in);
+        Ak ak = new Ak();
+
+        int valor, i = 1;
+        while (i < 3) {
+            if (i == 1) {
+                System.out.println("\n ----MENU---- \n");
+                System.out.println("Jugador " + i + " elija la categoria del arma");
+                System.out.println("1. Bronce");
+                System.out.println("2. Plata");
+                System.out.println("3. Oro");
+                System.out.println("4. Diamante");
+                System.out.println("5. Adamantium");
+                valor = leer.nextInt();
+
+                Personaje p1 = new Personaje("Samuel"); //CONSTRUCTOR VACIO 
+                p1.equiparArma(valor);
+                System.out.println(p1);
+                System.out.println(p1.disparar());
+
+                i++;
+            } else {
+                System.out.println("\n ----MENU---- \n");
+                System.out.println("Jugador " + i + " elija la categoria del arma");
+                System.out.println("1. Bronce");
+                System.out.println("2. Plata");
+                System.out.println("3. Oro");
+                System.out.println("4. Diamante");
+                System.out.println("5. Adamantium");
+                valor = leer.nextInt();
+
+                Personaje p2 = new Personaje("Marcus");
+                p2.equiparArma(valor);
+                System.out.println(p2);
+                System.out.println(p2.disparar());
+
+                i++;
+            }
+            if(i == 3){
+                System.out.println("\n ----MENU---- \n");
+                System.out.println("Jugador " + i + " elija la categoria del arma");
+                System.out.println("1. Bronce");
+                System.out.println("2. Plata");
+                System.out.println("3. Oro");
+                System.out.println("4. Diamante");
+                System.out.println("5. Adamantium");
+                valor = leer.nextInt();
+
+                Personaje p3 = new Personaje("Dominic"); 
+                p3.equiparArma(valor);
+                System.out.println(p3);
+                System.out.println(p3.disparar());    
+                    
+            }
+        }
+    }
 }

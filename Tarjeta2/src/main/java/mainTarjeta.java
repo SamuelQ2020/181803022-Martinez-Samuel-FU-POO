@@ -19,8 +19,12 @@ public class mainTarjeta {
         do {
             System.out.println("\n---- Menú de Opciones ----\n");
             System.out.println("1. Hacer un deposito:");
-            System.out.println("2. Hacer un retiroo:");
-            System.out.println("3. Eliminar apartado:");
+            System.out.println("2. Hacer un retiro:");
+            if(tarjeta.apartado > 0){
+                System.out.println("3. Eliminar apartado:");
+            }else{
+                System.out.println("3. Crear apartado:");
+            }
             System.out.println("4. Imprimir datos de la cuenta:");
             System.out.println("5. Salir:");
             System.out.println("¿Que opcion desea realizar?:");
@@ -34,17 +38,22 @@ public class mainTarjeta {
                     break;
                 case 2:
                     System.out.println("Monto a retirar: $");
-                    tarjeta.retirar(leer.nextDouble());
+                    tarjeta.verificarretiro(leer.nextDouble());
                     break;
                 case 3:
-                    tarjeta.eliminarapartado();
-                    System.out.println("A Eliminado el Apartado");
-                    break;
+                    if (tarjeta.apartado != 0){ 
+                        tarjeta.eliminarapartado();
+                        System.out.println("A Eliminado el Apartado");
+                        break; 
+                    }else{
+                        System.out.println("Monto a crear el nuevo apartado: $");
+                        tarjeta.verificarapartado(leer.nextDouble());
+                        break;
+                    }
                 case 4:
                     System.out.println(tarjeta.toString());
                     break;
             }
-        }while(opc!=5);
-        
+        } while (opc != 5);
     }
 }
